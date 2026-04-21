@@ -303,10 +303,10 @@
 %end
 */
 
-// Remove "Play next in queue" from the menu @PoomSmart (https://github.com/qnblackcat/uYouPlus/issues/1138#issuecomment-1606415080)
+// Remove "Play next in queue" from the menu @PoomSmart (https://github.com/qnblackcat/uYouPlus/issues/1138#issuecomment-1606415080) and Listen in YouTube Music @Tonwalter888
 %hook YTMenuItemVisibilityHandler
 - (BOOL)shouldShowServiceItemRenderer:(YTIMenuConditionalServiceItemRenderer *)renderer {
-    if (renderer.icon.iconType == 251) {
+    if (renderer.icon.iconType == 251 || renderer.icon.iconType == 759) {
         return NO;
     } return %orig;
 }
@@ -314,7 +314,7 @@
 
 %hook YTMenuItemVisibilityHandlerImpl
 - (BOOL)shouldShowServiceItemRenderer:(YTIMenuConditionalServiceItemRenderer *)renderer {
-    if (renderer.icon.iconType == 251) {
+    if (renderer.icon.iconType == 251 || renderer.icon.iconType == 759) {
         return NO;
     } return %orig;
 }
