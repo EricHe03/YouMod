@@ -125,8 +125,8 @@
 
 - (void)didMoveToWindow {
     %orig;
-    if (IS_ENABLED(HideHoriShelf) && [self.accessibilityIdentifier isEqualToString:@"horizontal-video-shelf.view"]) self.hidden = YES;
-	if (IS_ENABLED(HideGenMusicShelf) && [self.accessibilityIdentifier isEqualToString:@"feed_nudge.view"]) self.hidden = YES;
+    if (IS_ENABLED(HideHoriShelf) && [self.accessibilityIdentifier isEqualToString:@"horizontal-video-shelf.view"]) self.hidden = YES; [self removeFromSuperview];
+	if (IS_ENABLED(HideGenMusicShelf) && [self.accessibilityIdentifier isEqualToString:@"feed_nudge.view"]) self.hidden = YES; [self removeFromSuperview];
 }
 
 %end
