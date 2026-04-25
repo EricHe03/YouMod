@@ -1254,7 +1254,7 @@ BOOL isTabSelected = NO;
 %hook CHMConfiguration
 - (void)setKeychainAccessGroup:(id)arg {
     arg = accessGroupID();
-    return %orig(arg);
+    %orig(arg);
 }
 - (id)keychainAccessGroup { return accessGroupID(); }
 %end
