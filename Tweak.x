@@ -952,6 +952,15 @@ static BOOL isDarkMode(UIView *view) {
 - (BOOL)enableIosFloatingMiniplayerDoubleTapToResize { return IS_ENABLED(FixesSlowMiniPlayer) ? NO : %orig; }
 %end
 
+// Use old miniplayer
+%hook YTColdConfig
+- (BOOL)enableIosFloatingMiniplayer { return IS_ENABLED(DisablesNewMiniPlayer) ? NO : %orig; }
+%end
+
+%hook YTColdConfigWatchPlayerClientGlobalConfigImpl
+- (BOOL)enableIosFloatingMiniplayer { return IS_ENABLED(DisablesNewMiniPlayer) ? NO : %orig; }
+%end
+
 // Disables Snackbar
 %hook GOOHUDManagerInternal
 - (id)sharedInstance { return IS_ENABLED(DisablesSnackBar) ? nil : %orig; }
