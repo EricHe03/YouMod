@@ -602,7 +602,7 @@ static BOOL isDarkMode(UIView *view) {
 
 %hook YTAutonavEndscreenController
 - (void)showEndscreen { if (!IS_ENABLED(HideSuggestedVideo)) %orig; }
-- (void)showEndscreenControlsInPlayerBar:(BOOL)arg { IS_ENABLED(HideSuggestedVideo) ? %orig(NO) ; %orig; }
+- (void)showEndscreenControlsInPlayerBar:(BOOL)arg { IS_ENABLED(HideSuggestedVideo) ? %orig(NO) : %orig; }
 %end
 
 %hook YTSettings
