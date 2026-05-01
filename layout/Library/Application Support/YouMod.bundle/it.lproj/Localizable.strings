@@ -1,8 +1,8 @@
 "NOTE" = "NOTA: Alcune funzioni potrebbero lasciare un riquadro vuoto.";
 "SETTINGS" = "Impostazioni";
 
-"NEW_ISSUES" = "Segnala un problema o richiedi una funzione"";
-"NEW_ISSUES_DESC" = "Hai trovato un bug o vuoi una nuova funzione? clicca qui!";
+"NEW_ISSUES" = "Segnala un problema o richiedi una funzione";
+"NEW_ISSUES_DESC" = "Hai trovato un bug o vuoi una nuova funzione? Clicca qui!";
 "SOURCE_CODES" = "Source codes";
 "SOURCE_CODES_DESC" = "Take a look at the codes!";
 
@@ -11,7 +11,7 @@
 "IMPORT" = "Importa impostazioni";
 "IMPORT_DESC" = "Importa le tue preferenze da un file .plist.";
 "IMPORT_DONE" = "Fatto";
-"YES" = "Si";
+"YES" = "Sì";
 "APPLY_DESC" = "Riavvio necessario per applicare le modifiche. Vuoi riavviare ora?";
 "EXPORT" = "Esporta impostazioni";
 "EXPORT_DESC" = "Salva le tue preferenze in un file .plist.";
