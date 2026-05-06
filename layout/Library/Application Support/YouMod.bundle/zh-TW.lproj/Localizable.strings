@@ -210,6 +210,8 @@
 "ENABLES_SHORTS_QUALITY_DESC" = "Force enable the video quality selection menu in Shorts.";
 "SHOW_SHORTS_SEEKBAR" = "Always show seekbar";
 "SHOW_SHORTS_SEEKBAR_DESC" = "Ensure the progress/seek bar is always visible at the bottom of the Shorts player.";
+"SHORTS_TO_REGULAR" = "Shorts to regular videos";
+"SHORTS_TO_REGULAR_DESC" = "Opens Shorts videos as regular videos.";
 
 "TABBAR" = "Tab bar";
 "DEFAULT_TAB" = "Default startup tab";

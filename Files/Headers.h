@@ -120,6 +120,7 @@
 #define HideRemixButton @"YouModHideRemixButton"
 #define HideSaveButton @"YouModHideSaveButton"
 // Shorts
+#define ShortsToRegular @"YouModShortsToRegular"
 #define HideShortsLikeButton @"YouModHideShortsLikeButton"
 #define HideShortsDisLikeButton @"YouModHideShortsDisLikeButton"
 #define HideShortsCommentButton @"YouModHideShortsCommentButton"

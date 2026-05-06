@@ -315,7 +315,7 @@ static void YouModAddEndTime(YTPlayerViewController *self, YTSingleVideoControll
     %orig;
     YouModDownloadSetCurrentPlayer(self);
     if (IS_ENABLED(AutoFullScreen)) [self performSelector:@selector(YouModAutoFullscreen) withObject:nil afterDelay:0.75];
-    // if (ytlBool(@"shortsToRegular")) [self performSelector:@selector(shortsToRegular) withObject:nil afterDelay:0.75];
+    if (IS_ENABLED(ShortsToRegular)) [self performSelector:@selector(YouModShortsToRegular) withObject:nil afterDelay:0.75];
     if (IS_ENABLED(DisablesCaptions)) [self performSelector:@selector(YouModTurnOffCaptions) withObject:nil afterDelay:1.0];
 }
 
@@ -323,9 +323,82 @@ static void YouModAddEndTime(YTPlayerViewController *self, YTSingleVideoControll
     %orig;
     YouModDownloadSetCurrentPlayer(self);
     if (IS_ENABLED(AutoFullScreen)) [self performSelector:@selector(YouModAutoFullscreen) withObject:nil afterDelay:0.75];
-    // if (ytlBool(@"shortsToRegular")) [self performSelector:@selector(shortsToRegular) withObject:nil afterDelay:0.75];
+    if (IS_ENABLED(ShortsToRegular)) [self performSelector:@selector(YouModShortsToRegular) withObject:nil afterDelay:0.75];
     if (IS_ENABLED(DisablesCaptions)) [self performSelector:@selector(YouModTurnOffCaptions) withObject:nil afterDelay:1.0];
 }
+
+/*
+%new
+- (void)YouModSetAutoSpeed {
+    if ([self.activeVideoPlayerOverlay isKindOfClass:NSClassFromString(@"YTMainAppVideoPlayerOverlayViewController")]
+        && [self.view.superview isKindOfClass:NSClassFromString(@"YTWatchView")]) {
+        YTMainAppVideoPlayerOverlayViewController *overlayVC = (YTMainAppVideoPlayerOverlayViewController *)self.activeVideoPlayerOverlay;
+
+        NSArray *speedLabels = @[@0.25, @0.5, @0.75, @1.0, @1.25, @1.5, @1.75, @2.0, @3.0, @4.0, @5.0];
+        [overlayVC setPlaybackRate:[speedLabels[ytlInt(@"autoSpeedIndex")] floatValue]];
+    }
+}
+
+%new
+- (void)YouModAutoQuality {
+    if (![self.view.superview isKindOfClass:NSClassFromString(@"YTWatchView")]) {
+        return;
+    }
+
+    NetworkStatus status = [[Reachability reachabilityForInternetConnection] currentReachabilityStatus];
+    NSInteger kQualityIndex = status == ReachableViaWiFi ? ytlInt(@"wiFiQualityIndex") : ytlInt(@"cellQualityIndex");
+
+    NSString *bestQualityLabel;
+    int highestResolution = 0;
+    for (MLFormat *format in self.activeVideo.selectableVideoFormats) {
+        int reso = format.singleDimensionResolution;
+        if (reso > highestResolution) {
+            highestResolution = reso;
+            bestQualityLabel = format.qualityLabel;
+        }
+    }
+
+    NSArray *qualityLabels = @[@"Default", bestQualityLabel, @"2160p60", @"2160p", @"1440p60", @"1440p", @"1080p60", @"1080p", @"720p60", @"720p", @"480p", @"360p"];
+    NSString *qualityLabel = qualityLabels[kQualityIndex];
+
+    if (![qualityLabel isEqualToString:bestQualityLabel]) {
+        BOOL exactMatch = NO;
+        NSString *closestQualityLabel = qualityLabel;
+
+        for (MLFormat *format in self.activeVideo.selectableVideoFormats) {
+            if ([format.qualityLabel isEqualToString:qualityLabel]) {
+                exactMatch = YES;
+                break;
+            }
+        }
+
+        if (!exactMatch) {
+            NSInteger bestQualityDifference = NSIntegerMax;
+
+            for (MLFormat *format in self.activeVideo.selectableVideoFormats) {
+                NSArray *formatСomponents = [format.qualityLabel componentsSeparatedByString:@"p"];
+                NSArray *targetComponents = [qualityLabel componentsSeparatedByString:@"p"];
+                if (formatСomponents.count == 2) {
+                    NSInteger formatQuality = [formatСomponents.firstObject integerValue];
+                    NSInteger targetQuality = [targetComponents.firstObject integerValue];
+                    NSInteger difference = labs(formatQuality - targetQuality);
+                    if (difference < bestQualityDifference) {
+                        bestQualityDifference = difference;
+                        closestQualityLabel = format.qualityLabel;
+                    }
+                }
+            }
+
+            qualityLabel = closestQualityLabel;
+        }
+    }
+
+    MLQuickMenuVideoQualitySettingFormatConstraint *fc = [[%c(MLQuickMenuVideoQualitySettingFormatConstraint) alloc] init];
+    if ([fc respondsToSelector:@selector(initWithVideoQualitySetting:formatSelectionReason:qualityLabel:)]) {
+        [self.activeVideo setVideoFormatConstraint:[fc initWithVideoQualitySetting:3 formatSelectionReason:2 qualityLabel:qualityLabel]];
+    }
+}
+*/
 
 %new
 - (void)YouModTurnOffCaptions {
@@ -356,11 +429,9 @@ static void YouModAddEndTime(YTPlayerViewController *self, YTSingleVideoControll
     playbackRate = rate;
     %orig;
 }
-%end
 
-/*
 %new
-- (void)shortsToRegular {
+- (void)YouModShortsToRegular {
     if (self.contentVideoID != nil && [self.parentViewController isKindOfClass:NSClassFromString(@"YTShortsPlayerViewController")]) {
         NSString *vidLink = [NSString stringWithFormat:@"vnd.youtube://%@", self.contentVideoID]; // idk about this
         if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:vidLink]]) {
@@ -370,6 +441,7 @@ static void YouModAddEndTime(YTPlayerViewController *self, YTSingleVideoControll
 }
 %end
 
+/*
 // Fix Playlist Mini-bar Height For Small Screens
 %hook YTPlaylistMiniBarView
 - (void)setFrame:(CGRect)frame {

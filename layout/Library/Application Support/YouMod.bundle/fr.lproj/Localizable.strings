@@ -210,6 +210,8 @@
 "ENABLES_SHORTS_QUALITY_DESC" = "Force l'activation du menu de sélection de qualité vidéo dans les Shorts.";
 "SHOW_SHORTS_SEEKBAR" = "Toujours afficher la barre de progression";
 "SHOW_SHORTS_SEEKBAR_DESC" = "Affiche en permanence la barre de progression en bas du lecteur Shorts.";
+"SHORTS_TO_REGULAR" = "Shorts to regular videos";
+"SHORTS_TO_REGULAR_DESC" = "Opens Shorts videos as regular videos.";
 
 "TABBAR" = "Barre d'onglets";
 "DEFAULT_TAB" = "Onglet de démarrage par défaut";

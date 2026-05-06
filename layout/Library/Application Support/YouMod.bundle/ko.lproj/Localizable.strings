@@ -209,6 +209,8 @@
 "ENABLES_SHORTS_QUALITY_DESC" = "쇼츠에서도 사용자가 직접 1080p 등 원하는 화질을 선택할 수 있도록 메뉴를 활성화합니다.";
 "SHOW_SHORTS_SEEKBAR" = "진행 바 항상 표시";
 "SHOW_SHORTS_SEEKBAR_DESC" = "쇼츠 맨 밑에 영상이 얼마나 재생됐는지 붉은 선으로 보여주는 진행 바를 항상 띄워둡니다.";
+"SHORTS_TO_REGULAR" = "Shorts to regular videos";
+"SHORTS_TO_REGULAR_DESC" = "Opens Shorts videos as regular videos.";
 
 "TABBAR" = "하단 탭 바";
 "DEFAULT_TAB" = "기본 시작 탭 설정";

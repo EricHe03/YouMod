@@ -210,6 +210,8 @@
 "ENABLES_SHORTS_QUALITY_DESC" = "สามารถเลือกคุณภาพ Shorts ได้";
 "SHOW_SHORTS_SEEKBAR" = "แสดงแถบเลื่อนเสมอ";
 "SHOW_SHORTS_SEEKBAR_DESC" = "แสดงแถบความคืบหน้าเสมอ";
+"SHORTS_TO_REGULAR" = "เปลี่ยน Shorts เป็นวิดีโอธรรมมดา";
+"SHORTS_TO_REGULAR_DESC" = "เปิด Shorts เป็นวิดีโอธรรมมดา";
 
 "TABBAR" = "แท็บนำทาง";
 "DEFAULT_TAB" = "แท็บเริ่มต้น";

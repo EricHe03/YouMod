@@ -101,7 +101,7 @@ static NSString *GetCacheSize() { // YTLite - @dayanch96
 
     // Tweak Version (at the top)
     // Thanks to the original codes from YTweaks by fosterbarnes - https://github.com/fosterbarnes/YTweaks/blob/e921591a89b87256a2b37c4788bd99282f70d9c2/Settings.x
-    YTSettingsSectionItem *tweakVersion = [YTSettingsSectionItemClass itemWithTitle:@"YouMod v1.3.0"
+    YTSettingsSectionItem *tweakVersion = [YTSettingsSectionItemClass itemWithTitle:@"YouMod v1.3.1"
         titleDescription:nil
         accessibilityIdentifier:nil
         detailTextBlock:nil
@@ -432,6 +432,7 @@ static NSString *GetCacheSize() { // YTLite - @dayanch96
             BASIC_SWITCH(LOC(@"HIDE_SHORTS_TO_VIDEO"), LOC(@"HIDE_SHORTS_TO_VIDEO_DESC"), HideShortsToVideo),
             BASIC_SWITCH(LOC(@"ENABLES_SHORTS_QUALITY"), LOC(@"ENABLES_SHORTS_QUALITY_DESC"), EnablesShortsQuality),
             BASIC_SWITCH(LOC(@"SHOW_SHORTS_SEEKBAR"), LOC(@"SHOW_SHORTS_SEEKBAR_DESC"), ShowShortsSeekbar),
+            BASIC_SWITCH(LOC(@"SHORTS_TO_REGULAR"), LOC(@"SHORTS_TO_REGULAR_DESC"), ShortsToRegular),
         ];        
         YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"SHORTS") pickerSectionTitle:nil rows:rows selectedItemIndex:0 parentResponder:[self parentResponder]];
         [settingsViewController pushViewController:picker];

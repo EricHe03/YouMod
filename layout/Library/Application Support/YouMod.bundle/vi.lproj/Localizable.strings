@@ -210,6 +210,8 @@
 "ENABLES_SHORTS_QUALITY_DESC" = "Ép bật menu chọn chất lượng video trong Shorts.";
 "SHOW_SHORTS_SEEKBAR" = "Luôn hiện thanh tiến trình";
 "SHOW_SHORTS_SEEKBAR_DESC" = "Đảm bảo thanh tiến trình/thanh tua luôn hiển thị ở dưới cùng của trình phát Shorts.";
+"SHORTS_TO_REGULAR" = "Shorts to regular videos";
+"SHORTS_TO_REGULAR_DESC" = "Opens Shorts videos as regular videos.";
 
 "TABBAR" = "Thanh Tab";
 "DEFAULT_TAB" = "Tab khởi động mặc định";
