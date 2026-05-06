@@ -208,6 +208,7 @@ typedef NS_ENUM(NSUInteger, GestureSection) {
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer;
 - (void)YouModAutoFullscreen;
 - (void)YouModTurnOffCaptions;
+- (void)YouModShortsToRegular;
 - (void)setActiveCaptionTrack:(id)arg1 source:(long long)arg2;
 - (void)setPlaybackRate:(float)rate;
 @end
